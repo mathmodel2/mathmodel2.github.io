@@ -100,11 +100,11 @@ Thus Total Complexity for each test case is $\mathcal{O}(1)$ time .
 
 
 we need to see all cases (pairs) for which violates the condition , well let's see how we determine the number of pairs for only (odd numbers) since even $k$ can be solved with typical standard permutation .\\
-Using \textbf{Mod Array} this is how we can get the number of invalid pairs, $(0,0)$ is always invalid pair , then there are another pairs depending on $k$ , there are $\lfloor \frac{n}{2} \rfloor$ different pairs to do sum with, for example $k=3 \Rightarrow \{(1,2),(2,1)\}$ which can be counted $2 \lfloor \frac{n}{2} \rfloor=n-1$ for odd numbers and there's also base case yields $n$ invalid pairs,
+Using $\textbf{Mod Array}$ this is how we can get the number of invalid pairs, $(0,0)$ is always invalid pair , then there are another pairs depending on $k$ , there are $\lfloor \frac{n}{2} \rfloor$ different pairs to do sum with, for example $k=3 \Rightarrow \{(1,2),(2,1)\}$ which can be counted $2 \lfloor \frac{n}{2} \rfloor=n-1$ for odd numbers and there's also base case yields $n$ invalid pairs,
 Now our mission is to construct a permutation without facing any pair of these. 
-Let's analyze the situation , for all numbers in $[1,n]$ it has a specific value $\mod k$ , we want to calculate how many values $i$ such that : $1 \le i \le n$ satisfy \\ $ i \mod k=x$ , let's construct a \textbf{Mini Mod Array} that will determine the \textbf{Final Mod Array} and depending on it we'll construct the permutation.
+Let's analyze the situation , for all numbers in $[1,n]$ it has a specific value $\mod k$ , we want to calculate how many values $i$ such that : $1 \le i \le n$ satisfy \\ $ i \mod k=x$ , let's construct a $\textbf{Mini Mod Array}$ that will determine the $\textbf{Final Mod Array}$ and depending on it we'll construct the permutation.
 $$\large m_{\text{mini}} = \underbrace{[1,2,...,\{k-1,0\}]}_{\textit{swap}(\lfloor \frac{k}{2} \rfloor , \lfloor \frac{k}{2} \rfloor -1)}$$
-Again we separate 3 because it's an edge case and it's a triangular number of the second degree,Let's see how we can arrange the \textbf{Final Mod Array} , we want to count all the mods by $k$ for the numbers , it can be calculated as follows:-
+Again we separate 3 because it's an edge case and it's a triangular number of the second degree,Let's see how we can arrange the $\textbf{Final Mod Array}$ , we want to count all the mods by $k$ for the numbers , it can be calculated as follows:-
 Considering $n \mod k=x$\\
 Every mod has at least $\lfloor \frac{n}{k} \rfloor$ values for mod in the array , and $\forall \:  1 \le i \le x$ it'll increase by 1 , let's denote the number of mod values such $i \textbf{ mod } k =z$ appears on the \textbf{Final Mod Array} as $c_{z}$ , so we obtain the following fact:-
 
@@ -115,9 +115,9 @@ $$ \large
 \end{cases}
 \normalsize
 $$
-Using The Past Fact , we can construct a valid permutation for all odd $k$ except $3$ , let the \textbf{Final Mod Array} be expanded like this :-
+Using The Past Fact , we can construct a valid permutation for all odd $k$ except $3$ , let the $\textbf{Final Mod Array}$ be expanded like this :-
 $$\large m_{\text{expanded}} =\underbrace{[1,1,.,1,2,2,.2,..,k-1,0,k-1,0,..,k-1,0]}_{\textit{swap}(\lfloor \frac{k}{2} \rfloor , \lfloor \frac{k}{2} \rfloor -1)}$$
-Now we let's reflect what we made in the expanded mod array , the sum of each pair can be \textbf{even} because 2 numbers has the same mod and of course won't be divisible by $k$ , or some number $b$ will collide with the next so the new number making $(2b+1) \mod k$ , so since $2b+1$ is always odd we make sure that $2b+1$ is not equal to $k$ by \textit{swap}$(\lfloor \frac{k}{2} \rfloor , \lfloor \frac{k}{2} \rfloor -1$),Finally still to distribute $0$'s so that no pair is equal to (0,0) , since 
+Now we let's reflect what we made in the expanded mod array , the sum of each pair can be $\textbf{even}$ because 2 numbers has the same mod and of course won't be divisible by $k$ , or some number $b$ will collide with the next so the new number making $(2b+1) \mod k$ , so since $2b+1$ is always odd we make sure that $2b+1$ is not equal to $k$ by \textit{swap}$(\lfloor \frac{k}{2} \rfloor , \lfloor \frac{k}{2} \rfloor -1$),Finally still to distribute $0$'s so that no pair is equal to (0,0) , since 
 $$\large c_{k-1} \ge c_0$$
 then we can distribute pairs : $(k-1,0)$ so if $c_{k-1}=c_0$ we can distribute it like this $$\large \underbrace{(k-1),0,(k-1),0...,(k-1),0}_{n \textbf{ times}}$$
 and if $c_{k-1}=c_0+1$ then it can be distributed like this:-
@@ -129,7 +129,8 @@ $20 \mod 9=2 \Rightarrow c_1=c_2=\lfloor \frac{n}{k} \rfloor+1=3$ and $c_3=c_4=.
 $$\large m_{\text{expanded}}=[1,1,1,2,2,2,4,4,3,3,5,5,6,6,7,7,8,0,8,0]$$
 Finally generate numbers W.R.T mods , one valid permutation is:-
 $$p=[1,10,19,2,11,20,4,13,3,12,5,14,6,15,7,16,8,9,17,18]$$
-\textbf{Note: In practice we'll put $0$ as $k$ for generating correct answers but mathematically it's just $0$}\\
+$\textbf{Note: In practice we'll put $0$ as $k$ for generating correct answers but mathematically it's just $0$}$
+	
 We used $\mathtt{map}$ Structure ($\mathtt{dict}$ in $\mathtt{python}$) to optimize the storing operation in average $\mathcal{O}(1)$ time, and constructing operation takes $\mathcal{O}(n)$ time , since time for storing values in $\mathtt{map}$ structure  we consider the worst case of $\mathtt{map}$ , so complexity (worst case) is $\mathcal{O}(n+k)$ because the $\mathtt{dict}$ structure in $\mathtt{python}$ . 
 </p>
   <div class="wrapper">
