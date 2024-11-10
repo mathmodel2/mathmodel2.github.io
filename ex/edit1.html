@@ -117,7 +117,7 @@ $$ \large
 $$
 Using The Past Fact , we can construct a valid permutation for all odd $k$ except $3$ , let the $\textbf{Final Mod Array}$ be expanded like this :-
 $$\large m_{\text{expanded}} =\underbrace{[1,1,.,1,2,2,.2,..,k-1,0,k-1,0,..,k-1,0]}_{\textit{swap}(\lfloor \frac{k}{2} \rfloor , \lfloor \frac{k}{2} \rfloor -1)}$$
-Now we let's reflect what we made in the expanded mod array , the sum of each pair can be $\textbf{even}$ because 2 numbers has the same mod and of course won't be divisible by $k$ , or some number $b$ will collide with the next so the new number making $(2b+1) \mod k$ , so since $2b+1$ is always odd we make sure that $2b+1$ is not equal to $k$ by $\textit{swap}(\lfloor \frac{k}{2} \rfloor , \lfloor \frac{k}{2} \rfloor -1$)$,Finally still to distribute $0$'s so that no pair is equal to (0,0) , since 
+Now we let's reflect what we made in the expanded mod array , the sum of each pair can be $\textbf{even}$ because 2 numbers has the same mod and of course won't be divisible by $k$ , or some number $b$ will collide with the next so the new number making $(2b+1) \mod k$ , so since $2b+1$ is always odd we make sure that $2b+1$ is not equal to $k$ by $\textit{swap}(\lfloor \frac{k}{2} \rfloor , \lfloor \frac{k}{2} \rfloor -1)$,Finally still to distribute $0$'s so that no pair is equal to (0,0) , since 
 $$\large c_{k-1} \ge c_0$$
 then we can distribute pairs : $(k-1,0)$ so if $c_{k-1}=c_0$ we can distribute it like this $$\large \underbrace{(k-1),0,(k-1),0...,(k-1),0}_{n \textbf{ times}}$$
 and if $c_{k-1}=c_0+1$ then it can be distributed like this:-
