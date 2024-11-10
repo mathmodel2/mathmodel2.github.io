@@ -59,10 +59,34 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p>If I had more time
-I would have written a shorter post</p>
+        <div class="home">
 <h2 class="post-list-heading">Editorial of 2024 October Problems</h2>
+        <h3>
+          <a class="post-link" href="https://codeforces.com/gym/105445/problem/A">
+            A. Sum Fun
+          </a>
+        </h3>
+  For odd values of $n$ we can re-express string $s$ as 
+$$s_1s_2...s_{\lceil \frac{n}{2} \rceil}...s_n$$
+Note that $s_1+s_2+...+s_{\lfloor \frac{n}{2} \rfloor}=s_{\lceil \frac{n}{2} \rceil+1}+....+s_n$ , so we can assume the sum as $f$. 
 
+And let's denote the median digit by $h$ , thus the sum is $2f+h$ , it can be shown that $h$ can be possibly any digit , thus we can construct all sums which lies between minimum and maximum inclusive .
+$$\begin{cases}
+	n \le m \le 9n \\
+	n \text{ mod } 2=1 \\
+\end{cases}
+\Rightarrow \mathtt{YES}
+$$
+Now Let's do the same for even values of $n$ we can re-express $s$ as
+$$s_1s_2...[s_{\lfloor \frac{n}{2} \rfloor}s_{\lfloor \frac{n}{2} \rfloor+1}]...s_n$$
+Using the symmetric property we can see $s_{\lfloor \frac{n}{2} \rfloor}=s_{\lfloor \frac{n}{2} \rfloor+1}$ , if we denote one digit by $h$ thus the sum of medians is $2h$ and if we denote the left and right segments by $f$ as we did for odd $n$ then we have $m=2f+2h=2(f+h)$ thus for even $n$ we have an additional condition that sum must be even
+$$\begin{cases}
+	n \le m \le 9n \\
+	(n+m) \text{ mod } 2=0 \\
+\end{cases}
+\Rightarrow \mathtt{YES}
+$$
+Thus Total Complexity for each test case is $\mathcal{O}(1)$ time .
   <div class="wrapper">
 
     <h2 class="footer-heading">MathModel&#39;s blog</h2>
