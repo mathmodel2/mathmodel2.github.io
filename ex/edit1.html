@@ -66,18 +66,19 @@
             A. Sum Fun
           </a>
         </h3>
-  For odd values of <p>$n$</p> we can re-express string <p>$s$</p> as 
+<p>
+  For odd values of $n$ we can re-express string $s$ as 
 $$s_1s_2...s_{\lceil \frac{n}{2} \rceil}...s_n$$
-Note that <p>$s_1+s_2+...+s_{\lfloor \frac{n}{2} \rfloor}=s_{\lceil \frac{n}{2} \rceil+1}+....+s_n$</p> , so we can assume the sum as <p>$f$</p>. 
+Note that $s_1+s_2+...+s_{\lfloor \frac{n}{2} \rfloor}=s_{\lceil \frac{n}{2} \rceil+1}+....+s_n$ , so we can assume the sum as $f$. 
 
-And let's denote the median digit by <p>$h$</p> , thus the sum is <p>$2f+h$</p> , it can be shown that <p>$h$</p> can be possibly any digit , thus we can construct all sums which lies between minimum and maximum inclusive .
+And let's denote the median digit by $h$, thus the sum is $2f+h$ , it can be shown that $h$ can be possibly any digit , thus we can construct all sums which lies between minimum and maximum inclusive .
 $$\begin{cases}
 	n \le m \le 9n \\
 	n \text{ mod } 2=1 \\
 \end{cases}
 \Rightarrow \mathtt{YES}
 $$
-Now Let's do the same for even values of <p>$n$</p> we can re-express <p>$s$</p> as
+Now Let's do the same for even values of $n$ we can re-express <p>$s$</p> as
 $$s_1s_2...[s_{\lfloor \frac{n}{2} \rfloor}s_{\lfloor \frac{n}{2} \rfloor+1}]...s_n$$
 Using the symmetric property we can see <p>$s_{\lfloor \frac{n}{2} \rfloor}=s_{\lfloor \frac{n}{2} \rfloor+1}$</p> , if we denote one digit by <p>$h$</p> thus the sum of medians is <p>$2h$</p> and if we denote the left and right segments by <p>$f$</p> as we did for odd <p>$n$</p> then we have <p>$m=2(f+h)$</p> thus for even <p>$n$</p> we have an additional condition that sum must be even
 $$\begin{cases}
@@ -87,6 +88,7 @@ $$\begin{cases}
 \Rightarrow \mathtt{YES}
 $$
 Thus Total Complexity for each test case is <p>$\mathcal{O}(1)$</p> time .
+	</p>
   <div class="wrapper">
 
     <h2 class="footer-heading">MathModel&#39;s blog</h2>
