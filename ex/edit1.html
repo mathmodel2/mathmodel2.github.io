@@ -43,7 +43,14 @@
   </script>
 </head>
 <body><header class="site-header" role="banner">
-
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ]
+    }
+  };
+</script>
   <div class="wrapper"><a class="site-title" rel="author" href="/">MathModel&#39;s blog</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
