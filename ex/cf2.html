@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en"><head>
   <style>
@@ -35,16 +34,16 @@
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
   
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [ ['$','$'], ['\\(','\\)'] ]
-      }
-    };
-  </script>
 </head>
 <body><header class="site-header" role="banner">
-
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ]
+    }
+  };
+</script>
   <div class="wrapper"><a class="site-title" rel="author" href="/">MathModel&#39;s blog</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
@@ -60,37 +59,42 @@
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p>If I had more time
-I would have written a shorter post</p>
-<h2 class="post-list-heading">Posts</h2>
-<h3>
-  <a class="post-link" href="/ex/cf2.html">
-    Codeforces Round 993 (Div.4) Screencast !. 
-  </a>
-</h3></li><li><span class="post-meta">Nov 24, 2024</span>
-
+        <div class="home">
+<h2 class="post-list-heading">Codeforces Round 993 (Div. 4) -- My Editorial</h2>
+        <h3>
+          <a class="post-link" href="https://codeforces.com/contest/2044/problem/A">
+            A. Easy Problem
+          </a>
+        </h3>
+        You can run a brute force code iterating for $1$ to $n$ as $a$ and $b$ yield $\mathcal{O}(n^2)$ , however
+        it can be shown that the answer can be shortcuted to just $n-1$ in $\mathcal{O}(1)$.
 
         <h3>
-          <a class="post-link" href="/ex/edit2.html">
-            CodeTON Round 9 (Div. 1 + Div. 2, Rated, Prizes!) Screencast !. 
+          <a class="post-link" href="https://codeforces.com/contest/2044/problem/B">
+            B. Normal Problem
           </a>
-        </h3></li><li><span class="post-meta">Nov 24, 2024</span>
-
-          
-          <a class="post-link" href="/ex/cf1.html">
-            Codeforces Round 988 (Div. 3) - My Editorial
-          </a>
-        </h3></li><li><span class="post-meta">Nov 18, 2024</span>
+        </h3>
+        For each character $\mathtt{p}$ or $\mathtt{q}$ , just alternate between them , and finally 
+        reverse the string , $\mathcal{O}(n)$.
         <h3>
-          <a class="post-link" href="/ex/edit1.html">
-            Editorial of my problems on October 2024 
+          <a class="post-link" href="https://codeforces.com/contest/2044/problem/C">
+            C. Hard Problem
           </a>
-        </h3></li><li><span class="post-meta">Nov 10, 2024</span>
-        <h3>
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+        </h3>
+        This is a simulation problem  , The monkeys will set in first row are $x=\min(a,m)$ , in second row as well 
+        $y=\min(b,m)$ , now remains the monkeys with no preferances $z=\min(2m-x-y,c)$ , The final answer is $x+y+z$.
 
+        Complexity is $\mathcal{O}(1)$.
+        <h3>
+            <a class="post-link" href="https://codeforces.com/contest/2044/problem/D">
+                D. Harder Problem
+            </a>
+          </h3>
+        The Key to solve the problem to Notice that $\textbf{There can be serveral modes for the array}$ thus
+        we can use all elements in range $[1,n]$ in such that works , this can be done , by maintaining an array 
+        $done$ that tracks if we added some integer $x$ in new array $b$ , so according to $a$ we keep add non-added elements 
+        and the rest of numbers is complement of numbers in range $[1,n]$ that doesn't appear in $a$ , thus the array $b$
+        satisfies the conditions and our solution is complete , Complexity $\mathcal{O}(n)$.
   <div class="wrapper">
 
     <h2 class="footer-heading">MathModel&#39;s blog</h2>
